@@ -9,9 +9,10 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    scene = new Grid(ui->graphicsView);
-    scene->setSceneRect(0, 0, 10, 10);
+    ui->radioButton->setChecked(true);
 
+    scene = new Grid(ui->graphicsView);
+    scene->setSceneRect(0, 0, 532, 533);
 
 //    scene = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);
@@ -30,4 +31,11 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::bla()
+{
+    qDebug() << ui->graphicsView->width();
+    qDebug() << ui->graphicsView->height();
+
 }

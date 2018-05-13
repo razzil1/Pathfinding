@@ -6,7 +6,7 @@
 #include <QtGui>
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
-
+#include <QDebug>
 namespace Ui {
 class MainWindow;
 }
@@ -18,6 +18,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void bla();
 
 private:
     Ui::MainWindow *ui;
