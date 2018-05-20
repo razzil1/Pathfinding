@@ -9,10 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->radioButton->setChecked(true);
-
     scene = new Grid(ui->graphicsView);
-    scene->setSceneRect(0, 0, 532, 533);
+    scene->setSceneRect(0, 0, 520, 520);
 
 //    scene = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);
@@ -38,4 +36,14 @@ void MainWindow::bla()
     qDebug() << ui->graphicsView->width();
     qDebug() << ui->graphicsView->height();
 
+}
+
+void MainWindow::on_radioButton_clicked(bool checked)
+{
+    scene->setColor('g');
+}
+
+void MainWindow::on_radioButton_2_clicked(bool checked)
+{
+    scene->setColor('r');
 }

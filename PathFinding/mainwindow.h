@@ -7,6 +7,8 @@
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
 #include <QDebug>
+#include "grid.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -20,9 +22,14 @@ public:
     ~MainWindow();
     void bla();
 
+private slots:
+    void on_radioButton_clicked(bool checked);
+
+    void on_radioButton_2_clicked(bool checked);
+
 private:
     Ui::MainWindow *ui;
-    QGraphicsScene *scene;
+    Grid *scene;
     QGraphicsRectItem *rectangle1;
     QGraphicsRectItem *rectangle2;
 };

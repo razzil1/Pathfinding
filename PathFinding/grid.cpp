@@ -21,19 +21,14 @@ Grid::Grid(QObject * parent)
         }
         upperLeftY += 20;
     }
-
+    m_start[0] = 0;
+    m_start[1] = 0;
+    m_end[0] = 25;
+    m_end[1] = 25;
     m_grid[0][0].setBrush('g');
     m_grid[25][25].setBrush('r');
 
-    for(int i = 0; i < m_width; i++)
-    {
-        for(int j = 0; j < m_height; j++)
-        {
-            QPen pen(Qt::black);
-            pen.setWidth(1);
-            this->addRect(m_grid[i][j].getItem(),pen, m_grid[i][j].getBrush());
-        }
-    }
+    drawGrid();
 }
 
 void Grid::mousePressEvent(QGraphicsSceneMouseEvent * event)
@@ -50,13 +45,60 @@ void Grid::mousePressEvent(QGraphicsSceneMouseEvent * event)
     y = floor(posX / 20);
     x = floor(posY / 20);
 
-    m_grid[x][y].setBrush('b');
 
-    qDebug() << "Test!";
+    m_grid[x][y].setBrush(m_color);
+
+    if (m_color == 'g') {
+        m_grid[m_start[0]][m_start[1]].setBrush('w');
+        setStart(x, y);
+    }
+
+//    qDebug() << m_color;
+//    qDebug() << m_end[0];
+//    qDebug() << m_end[1];
+
+    if (m_color == 'r') {
+        m_grid[m_end[0]][m_end[1]].setBrush('w');
+        setEnd(x, y);
+    }
+
+ //   qDebug() << "Test!";
     qDebug() << posX << ' ' << x;
     qDebug() << posY << ' ' << y;
 
-    update();
-    QPen pen(Qt::black);
-    this->addRect(m_grid[x][y].getItem(),pen, m_grid[x][y].getBrush());
+//    update();
+//    QPen pen(Qt::black);
+//    this->addRect(m_grid[x][y].getItem(),pen, m_grid[x][y].getBrush());
+    drawGrid();
+}
+
+void Grid::setColor(const char c)
+{
+    m_color = c;
+}
+
+void Grid::setStart(const int x, const int y)
+{
+    m_start[0] = x;
+    m_start[1] = y;
+}
+
+void Grid::setEnd(const int x, const int y)
+{
+    m_end[0] = x;
+    m_end[1] = y;
+}
+
+void Grid::drawGrid()
+{
+    this->clear();
+    for(int i = 0; i < m_width; i++)
+    {
+        for(int j = 0; j < m_height; j++)
+        {
+            QPen pen(Qt::black);
+            pen.setWidth(1);
+            this->addRect(m_grid[i][j].getItem(),pen, m_grid[i][j].getBrush());
+        }
+    }
 }
