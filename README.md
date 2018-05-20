@@ -21,3 +21,8 @@ Finding path between two nodes using the most popular algorithms for informed an
     * [ ] A*
     * [ ] etc.
 * [ ] Implement obstacles
+
+## Screenshots
+
+![](Screenshots/2018-05-20.png)
+
