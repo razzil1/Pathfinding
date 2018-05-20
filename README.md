@@ -11,8 +11,8 @@ Finding path between two nodes using the most popular algorithms for informed an
 ## Development
 
 * [ ] GUI
-    * [ ] Grid
-    * [ ] Node
+    * [x] Grid
+    * [x] Node
     * [ ] Instruction box
 * [ ] Algorithms
     * [ ] DFS
