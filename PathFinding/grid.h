@@ -17,6 +17,8 @@ public:
     void setColor(const char c);
     void setStart(const int x, const int y);
     void setEnd(const int x, const int y);
+    Node* getStartNode();
+    Node* getEndNode();
 protected:
     void drawGrid();
 private:

@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include "grid.h"
+#include "astar.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,6 +12,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     scene = new Grid(ui->graphicsView);
     scene->setSceneRect(0, 0, 520, 520);
+
+    astar *debugAstar = new astar(*scene);
+    debugAstar->executeAstar();
 
 //    scene = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);

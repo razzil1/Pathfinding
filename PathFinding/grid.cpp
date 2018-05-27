@@ -102,3 +102,13 @@ void Grid::drawGrid()
         }
     }
 }
+
+Node* Grid::getStartNode()
+{
+    return &m_grid[m_start[0]][m_start[1]];
+}
+
+Node* Grid::getEndNode()
+{
+    return &m_grid[m_end[0]][m_end[1]];
+}

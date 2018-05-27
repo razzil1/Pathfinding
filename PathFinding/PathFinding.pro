@@ -27,12 +27,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     grid.cpp \
-    node.cpp
+    node.cpp \
+    astar.cpp
 
 HEADERS += \
         mainwindow.h \
     grid.h \
-    node.h
+    node.h \
+    astar.h
 
 FORMS += \
         mainwindow.ui
