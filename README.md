@@ -18,11 +18,11 @@ Finding path between two nodes using the most popular algorithms for informed an
     * [ ] DFS
     * [ ] BFS
     * [ ] Greedy
-    * [ ] A*
+    * [x] A*
     * [ ] etc.
 * [ ] Implement obstacles
 
-## Screenshots
+## Screenshot
 
-![](Screenshots/2018-05-20.png)
+![](Screenshots/2018-05-30.png)
 
