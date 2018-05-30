@@ -98,6 +98,7 @@ void Grid::drawGrid()
         {
             QPen pen(Qt::black);
             pen.setWidth(1);
+           // qDebug() << m_grid[i][j].getBrush().color().name();
             this->addRect(m_grid[i][j].getItem(),pen, m_grid[i][j].getBrush());
         }
     }
@@ -111,4 +112,9 @@ Node* Grid::getStartNode()
 Node* Grid::getEndNode()
 {
     return &m_grid[m_end[0]][m_end[1]];
+}
+
+Node* Grid::getNode(int x, int y) const
+{
+    return &m_grid[y][x];
 }

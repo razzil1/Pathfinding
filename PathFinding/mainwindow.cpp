@@ -13,11 +13,11 @@ MainWindow::MainWindow(QWidget *parent) :
     scene = new Grid(ui->graphicsView);
     scene->setSceneRect(0, 0, 520, 520);
 
-    astar *debugAstar = new astar(*scene);
-    debugAstar->executeAstar();
+
 
 //    scene = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);
+
 
 //    QPen pen(Qt::black);
 //    pen.setWidth(1);
@@ -50,4 +50,10 @@ void MainWindow::on_radioButton_clicked(bool checked)
 void MainWindow::on_radioButton_2_clicked(bool checked)
 {
     scene->setColor('r');
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    astar *debugAstar = new astar(*scene);
+    debugAstar->executeAstar();
 }

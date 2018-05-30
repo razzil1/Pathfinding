@@ -19,8 +19,10 @@ public:
     void setEnd(const int x, const int y);
     Node* getStartNode();
     Node* getEndNode();
-protected:
+    Node* getNode(int x, int y) const;
     void drawGrid();
+protected:
+
 private:
     Node **m_grid;
     const int m_width = 26;

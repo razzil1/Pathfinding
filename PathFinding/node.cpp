@@ -34,8 +34,40 @@ void Node::setBrush(char c)
             m_brush = QBrush(Qt::green);
             break;
         case 'b':
-            qDebug() << "Boji";
+            qDebug() << "Boji u plavo";
+            qDebug() << m_x;
+            qDebug() << m_y;
             m_brush = QBrush(Qt::blue);
             break;
     }
+}
+
+float Node::getG() const
+{
+    return m_g;
+}
+
+void Node::setG(float g)
+{
+    m_g = g;
+}
+
+int Node::getX() const
+{
+    return m_x;
+}
+
+int Node::getY() const
+{
+    return m_y;
+}
+
+void Node::setF(int f)
+{
+    m_f = f;
+}
+
+int Node::getF() const
+{
+    return m_f;
 }
