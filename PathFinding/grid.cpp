@@ -118,3 +118,18 @@ Node* Grid::getNode(int x, int y) const
 {
     return &m_grid[y][x];
 }
+
+void Grid::clearPath()
+{
+    for(int i = 0; i < m_width; i++)
+    {
+        for(int j = 0; j < m_height; j++)
+        {
+            m_grid[i][j].setBrush('w');
+        }
+    }
+    Node* startNode = getStartNode();
+    startNode->setBrush('g');
+    Node* endNode = getEndNode();
+    endNode->setBrush('r');
+}

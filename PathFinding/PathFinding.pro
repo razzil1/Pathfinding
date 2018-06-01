@@ -28,13 +28,16 @@ SOURCES += \
         mainwindow.cpp \
     grid.cpp \
     node.cpp \
-    astar.cpp
+    astar.cpp \
+    dijkstra.cpp
 
 HEADERS += \
         mainwindow.h \
     grid.h \
     node.h \
-    astar.h
+    astar.h \
+    dijkstra.h \
+    dijkstra.h
 
 FORMS += \
         mainwindow.ui

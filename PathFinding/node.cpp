@@ -39,6 +39,9 @@ void Node::setBrush(char c)
             qDebug() << m_y;
             m_brush = QBrush(Qt::blue);
             break;
+        case 'l':
+            m_brush = QBrush(Qt::lightGray);
+            break;
     }
 }
 
@@ -70,4 +73,14 @@ void Node::setF(int f)
 int Node::getF() const
 {
     return m_f;
+}
+
+Node* Node::getParent() const
+{
+    return m_parent;
+}
+
+void Node::setParent(Node *p)
+{
+    m_parent = p;
 }

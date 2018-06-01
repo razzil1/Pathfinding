@@ -19,6 +19,8 @@ public:
     int getY() const;
     void setF(int f);
     int getF() const;
+    Node* getParent() const;
+    void setParent(Node *p);
 private:
     int m_x;
     int m_y;
@@ -27,6 +29,7 @@ private:
     int m_f;
     QRectF m_item;
     QBrush m_brush;
+    Node* m_parent;
 };
 
 #endif // NODE_H

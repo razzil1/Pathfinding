@@ -21,6 +21,7 @@ public:
     Node* getEndNode();
     Node* getNode(int x, int y) const;
     void drawGrid();
+    void clearPath();
 protected:
 
 private:

@@ -54,6 +54,12 @@ void MainWindow::on_radioButton_2_clicked(bool checked)
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    astar *debugAstar = new astar(*scene);
-    debugAstar->executeAstar();
+    astar *Astar = new astar(*scene);
+    Astar->executeAstar();
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    scene->clearPath();
+    scene->drawGrid();
 }

@@ -24,5 +24,5 @@ Finding path between two nodes using the most popular algorithms for informed an
 
 ## Screenshot
 
-![](Screenshots/2018-05-30.png)
+![](Screenshots/2018-06-01.png)
 

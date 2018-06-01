@@ -15,6 +15,7 @@ public:
     std::vector<Node*> getNeighbourNodes(Node &node);
     bool inOpenList(Node &node);
     bool inCloesedList(Node &node);
+    void drawPath(Node &node);
 private:
     Grid *m_grid;
     std::vector<Node*> openList;

@@ -38,6 +38,7 @@ void astar::executeAstar()
         if (endNode->getX() == n->getX() && endNode->getY() == n->getY())
         {
             qDebug() << "Kraj";
+            drawPath(*n);
             startNode->setBrush('g');
             break;
         } else
@@ -53,7 +54,9 @@ void astar::executeAstar()
                     int g = n->getG()+1;
                     neigbourNodes[i]->setG(g);
                     calculateF(*neigbourNodes[i]);
+                    neigbourNodes[i]->setBrush('b');
                     openList.push_back(neigbourNodes[i]);
+                    neigbourNodes[i]->setParent(n);
                 } else
                 {
                     int newG = n->getG()+1;
@@ -61,6 +64,7 @@ void astar::executeAstar()
                     {
                         neigbourNodes[i]->setG(newG);
                         calculateF(*neigbourNodes[i]);
+                        neigbourNodes[i]->setParent(n);
                         if (inCloesedList(*neigbourNodes[i]))
                         {
                             bool flag = true;
@@ -93,7 +97,6 @@ void astar::executeAstar()
             {
                 openList.erase(openList.begin() + nodeToErase);
             }
-            n->setBrush('b');
             closedList.push_back(n);
         }
 
@@ -185,4 +188,16 @@ bool astar::inCloesedList(Node &node)
     }
     qDebug() << "vraca false";
     return false;
+}
+
+void astar::drawPath(Node &node)
+{
+    Node* parent = node.getParent();
+    node.setBrush('r');
+    bool flag = true;
+    while(parent)
+    {
+        parent->setBrush('l');
+        parent = parent->getParent();
+    }
 }
