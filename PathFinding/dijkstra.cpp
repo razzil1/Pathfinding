@@ -55,6 +55,7 @@ void dijkstra::execute()
 std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
 {
     Node* tmp;
+    float sqrtTwo = sqrt(2);
     std::vector<Node*> returnVector;
     int x = int(node.getX()/20);
     int y = int(node.getY()/20);
@@ -78,8 +79,8 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
 
         tmp = m_grid->getNode(x+1,y+1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
@@ -104,8 +105,8 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
         }
         tmp = m_grid->getNode(x+1,y-1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
@@ -131,8 +132,8 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
 
         tmp = m_grid->getNode(x-1,y+1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
@@ -157,8 +158,8 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
         }
         tmp = m_grid->getNode(x-1,y-1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
@@ -192,16 +193,16 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
 
         tmp = m_grid->getNode(x+1,y-1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
         }
         tmp = m_grid->getNode(x+1,y+1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
@@ -235,8 +236,8 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
         }
         tmp = m_grid->getNode(x-1,y+1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
@@ -244,8 +245,8 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
 
         tmp = m_grid->getNode(x+1,y+1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
@@ -280,8 +281,8 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
 
         tmp = m_grid->getNode(x-1,y+1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
@@ -289,8 +290,8 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
 
         tmp = m_grid->getNode(x-1,y-1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
@@ -325,8 +326,8 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
 
         tmp = m_grid->getNode(x-1,y-1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
@@ -334,8 +335,8 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
 
         tmp = m_grid->getNode(x+1,y-1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
@@ -378,32 +379,32 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
 
         tmp = m_grid->getNode(x-1,y-1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
         }
         tmp = m_grid->getNode(x+1,y-1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
         }
         tmp = m_grid->getNode(x-1,y+1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);
         }
         tmp = m_grid->getNode(x+1,y+1);
         if(!tmp->isWall){
-            if(tmp->getG() > node.getG()+sqrt(2)){
-                tmp->setG(node.getG()+sqrt(2));
+            if(tmp->getG() > node.getG()+sqrtTwo){
+                tmp->setG(node.getG()+sqrtTwo);
                 tmp->setParent(&node);
             }
             returnVector.push_back(tmp);

@@ -113,6 +113,7 @@ void Grid::clearPath()
         for(int j = 0; j < m_height; j++)
         {
             m_grid[i][j].setBrush('w');
+            m_grid[i][j].setParent(NULL);
         }
     }
     Node* startNode = getStartNode();
