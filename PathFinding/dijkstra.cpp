@@ -2,7 +2,6 @@
 #include"node.h"
 #include <climits>
 #include <math.h>
-#include <QDebug>
 
 dijkstra::dijkstra(Grid &grid)
 {
@@ -27,7 +26,7 @@ void dijkstra::execute()
     {
         Node* n = m_q[0];
 
-        for(int i=1;i<m_q.size();i++)
+        for(unsigned int i=1;i<m_q.size();i++)
         {
             if(n->getG() > m_q[i]->getG())
             {
@@ -41,12 +40,11 @@ void dijkstra::execute()
 
         if (n->getX() == endNode->getX() && n->getY() == endNode->getY())
         {
-            qDebug() << "Kraj!!!";
             drawPath(*n);
             return;
         }
         std::vector<Node*> neighbourNodes = getNeighbourNodes(*n);
-        for(int i=0; i<neighbourNodes.size(); i++)
+        for(unsigned int i=0; i<neighbourNodes.size(); i++)
         {
             neighbourNodes[i]->setBrush('b');
         }
@@ -412,10 +410,6 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
         }
     }
 
-    qDebug() << "Susedi od: " << node.getX() << " " << node.getY() << "\n";
-    for(int i = 0; i < returnVector.size(); i++)
-        qDebug() << "i: " << returnVector[i]->getX() << " " << returnVector[i]->getY() << "\n";
-
     m_grid->drawGrid();
     return returnVector;
 }
@@ -423,7 +417,7 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
 void dijkstra::popNode(Node &n)
 {
     int nodeToErase = -1;
-    for (int i = 0; i < m_q.size(); i++){
+    for (unsigned int i = 0; i < m_q.size(); i++){
         if (m_q[i]->getX() == n.getX() && m_q[i]->getY() == n.getY())
         {
             nodeToErase = i;

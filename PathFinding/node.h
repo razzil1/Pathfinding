@@ -3,7 +3,6 @@
 
 #include <QRectF>
 #include <QBrush>
-#include <QDebug>
 
 class Node
 {

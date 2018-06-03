@@ -4,7 +4,6 @@
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
 #include <QPointF>
-#include <QDebug>
 #include <math.h>
 
 #include "node.h"
@@ -12,7 +11,7 @@
 class Grid: public QGraphicsScene
 {
 public:
-    Grid(QObject * parent = 0);
+    Grid();
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void setColor(const char c);
     void setStart(const int x, const int y);

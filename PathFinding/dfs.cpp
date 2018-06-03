@@ -1,49 +1,74 @@
-#include "bfs.h"
+#include "dfs.h"
 
-bfs::bfs(Grid &grid)
+dfs::dfs(Grid &grid)
 {
    m_grid = &grid;
 }
 
-void bfs::executeBFS()
+void dfs::executeDFS()
 {
-
-
     Node* endNode = m_grid->getEndNode();
     Node* startNode = m_grid->getStartNode();
-    startNode->setParent(endNode);
 
-    openList.push_back(startNode);
+    path.push_back(startNode);
+    visitedNodes.push_back(startNode);
 
-    while(!openList.empty())
+    while(!path.empty())
     {
 
-        Node* n = openList[0];
-        openList.erase(openList.begin());
+        Node* n = path[path.size() - 1];
+
+        std::vector<Node*> neigbourNodes = getNeighbourNodes(*n);
+        bool hasUnvisited = false;
+        int notVisitedNode;
+
+
+        for (unsigned int i=0; i<neigbourNodes.size(); i++)
+        {
+            bool inVisited = false;
+            for (unsigned int j = 0; j < visitedNodes.size(); j++)
+            {
+                if (neigbourNodes[i]->getX() == visitedNodes[j]->getX() && neigbourNodes[i]->getY() == visitedNodes[j]->getY())
+                {
+                    inVisited = true;
+                }
+            }
+            if (!inVisited)
+            {
+                notVisitedNode = i;
+                hasUnvisited = true;
+                break;
+            }
+
+        }
 
         if (endNode->getX() == n->getX() && endNode->getY() == n->getY())
         {
-            startNode->setParent(NULL);
-            drawPath(*n);
-            startNode->setBrush('g');
-            break;
-        } else
-        {
-            std::vector<Node*> neigbourNodes = getNeighbourNodes(*n);
-            for (unsigned int i=0; i<neigbourNodes.size(); i++)
+
+            for(unsigned int i = 0; i < path.size(); i++)
             {
-                neigbourNodes[i]->setBrush('b');
-                if (!neigbourNodes[i]->getParent())
-                {
-                    neigbourNodes[i]->setParent(n);
-                    openList.push_back(neigbourNodes[i]);
-                }
+                path[i]->setBrush('l');
             }
+
+            startNode->setBrush('g');
+            endNode->setBrush('r');
+            m_grid->drawGrid();
+
+            break;
+        } else if (!hasUnvisited)
+        {
+            path.pop_back();
+        }
+        else
+        {
+            Node* m = neigbourNodes[notVisitedNode];
+            path.push_back(m);
+            visitedNodes.push_back(m);
         }
     }
 }
 
-std::vector<Node*> bfs::getNeighbourNodes(Node &node)
+std::vector<Node*> dfs::getNeighbourNodes(Node &node)
 {
     Node* tmp;
     std::vector<Node*> returnVector;
@@ -133,18 +158,4 @@ std::vector<Node*> bfs::getNeighbourNodes(Node &node)
     }
 
     return returnVector;
-}
-
-void bfs::drawPath(Node &node)
-{
-    Node* parent = node.getParent();
-    node.setBrush('r');
-    while(parent)
-    {
-        parent->setBrush('l');
-        parent = parent->getParent();
-    }
-    Node* startNode = m_grid->getStartNode();
-    startNode->setBrush('g');
-    m_grid->drawGrid();
 }

@@ -30,7 +30,8 @@ SOURCES += \
     node.cpp \
     astar.cpp \
     dijkstra.cpp \
-    bfs.cpp
+    bfs.cpp \
+    dfs.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +40,8 @@ HEADERS += \
     astar.h \
     dijkstra.h \
     dijkstra.h \
-    bfs.h
+    bfs.h \
+    dfs.h
 
 FORMS += \
         mainwindow.ui

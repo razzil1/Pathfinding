@@ -15,12 +15,12 @@ Finding path between two nodes using the most popular algorithms for informed an
     * [x] Node
     * [ ] Instruction box
 * [ ] Algorithms
-    * [ ] DFS
-    * [ ] BFS
-    * [ ] Greedy
+    * [x] DFS
+    * [x] BFS
+    * [x] Dijkstra
     * [x] A*
     * [ ] etc.
-* [ ] Implement obstacles
+* [x] Implement obstacles
 
 ## Screenshot
 

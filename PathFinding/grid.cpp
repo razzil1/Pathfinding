@@ -1,9 +1,8 @@
 #include "grid.h"
 
 
-Grid::Grid(QObject * parent)
+Grid::Grid()
 {
-   //this->setSceneRect(0, 0, 0, 0);
 
     m_grid = new Node *[m_width];
     for(int i = 0; i < m_width; i++)
@@ -53,22 +52,11 @@ void Grid::mousePressEvent(QGraphicsSceneMouseEvent * event)
         setStart(x, y);
     }
 
-//    qDebug() << m_color;
-//    qDebug() << m_end[0];
-//    qDebug() << m_end[1];
-
     if (m_color == 'r') {
         m_grid[m_end[0]][m_end[1]].setBrush('w');
         setEnd(x, y);
     }
 
- //   qDebug() << "Test!";
-    qDebug() << posX << ' ' << x;
-    qDebug() << posY << ' ' << y;
-
-//    update();
-//    QPen pen(Qt::black);
-//    this->addRect(m_grid[x][y].getItem(),pen, m_grid[x][y].getBrush());
     drawGrid();
 }
 
@@ -98,7 +86,6 @@ void Grid::drawGrid()
         {
             QPen pen(Qt::black);
             pen.setWidth(1);
-           // qDebug() << m_grid[i][j].getBrush().color().name();
             this->addRect(m_grid[i][j].getItem(),pen, m_grid[i][j].getBrush());
         }
     }

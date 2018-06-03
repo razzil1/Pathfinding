@@ -6,7 +6,6 @@
 #include <QtGui>
 #include <QGraphicsScene>
 #include <QGraphicsRectItem>
-#include <QDebug>
 #include "grid.h"
 
 namespace Ui {
@@ -20,18 +19,15 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void bla();
 
 private slots:
-    void on_radioButton_clicked(bool checked);
-
-    void on_radioButton_2_clicked(bool checked);
+    void on_radioButton_clicked();
+    void on_radioButton_2_clicked();
+    void on_radioButton_3_clicked();
 
     void on_pushButton_2_clicked();
-
     void on_pushButton_3_clicked();
 
-    void on_radioButton_3_clicked(bool checked);
 
 private:
     Ui::MainWindow *ui;

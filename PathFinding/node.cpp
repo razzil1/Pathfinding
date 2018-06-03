@@ -35,9 +35,6 @@ void Node::setBrush(char c)
             m_brush = QBrush(Qt::green);
             break;
         case 'b':
-            qDebug() << "Boji u plavo";
-            qDebug() << m_x;
-            qDebug() << m_y;
             m_brush = QBrush(Qt::blue);
             break;
         case 'l':
