@@ -4,6 +4,7 @@
 #include "grid.h"
 #include "astar.h"
 #include "dijkstra.h"
+#include "bfs.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -61,6 +62,9 @@ void MainWindow::on_pushButton_2_clicked()
     } else if (ui->comboBox->currentIndex() == 1) {
         dijkstra *Dijkstra = new dijkstra(*scene);
         Dijkstra->execute();
+    } else if (ui->comboBox->currentIndex() == 2) {
+        bfs *Bfs = new bfs(*scene);
+        Bfs->executeBFS();
     }
 }
 

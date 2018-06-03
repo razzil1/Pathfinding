@@ -29,7 +29,8 @@ SOURCES += \
     grid.cpp \
     node.cpp \
     astar.cpp \
-    dijkstra.cpp
+    dijkstra.cpp \
+    bfs.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -37,7 +38,8 @@ HEADERS += \
     node.h \
     astar.h \
     dijkstra.h \
-    dijkstra.h
+    dijkstra.h \
+    bfs.h
 
 FORMS += \
         mainwindow.ui

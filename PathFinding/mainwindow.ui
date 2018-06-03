@@ -62,7 +62,7 @@
            </item>
            <item>
             <property name="text">
-             <string>Greedy</string>
+             <string>Dijkstra</string>
             </property>
            </item>
            <item>
