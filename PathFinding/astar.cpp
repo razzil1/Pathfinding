@@ -116,42 +116,91 @@ int astar::calculateF(Node &node)
 
 std::vector<Node*> astar::getNeighbourNodes(Node &node)
 {
+    Node* tmp;
     std::vector<Node*> returnVector;
     int x = int(node.getX()/20);
     int y = int(node.getY()/20);
     if( x == 0 && y == 0) {
-        returnVector.push_back(m_grid->getNode(x+1,y));
-        returnVector.push_back(m_grid->getNode(x,y+1));
+        tmp = m_grid->getNode(x+1,y);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x,y+1);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
     } else if (x == 0 && y == 25) {
-        returnVector.push_back(m_grid->getNode(x+1,y));
-        returnVector.push_back(m_grid->getNode(x,y-1));
+        tmp = m_grid->getNode(x+1,y);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x,y-1);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
     } else if (x == 25 && y == 0) {
-        returnVector.push_back(m_grid->getNode(x-1,y));
-        returnVector.push_back(m_grid->getNode(x,y+1));
+        tmp = m_grid->getNode(x-1,y);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x,y+1);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
     } else if (x == 25 && y == 25) {
-        returnVector.push_back(m_grid->getNode(x-1,y));
-        returnVector.push_back(m_grid->getNode(x,y-1));
+        tmp = m_grid->getNode(x-1,y);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x,y-1);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
     } else if (x == 0) {
-        returnVector.push_back(m_grid->getNode(x+1,y));
-        returnVector.push_back(m_grid->getNode(x,y+1));
-        returnVector.push_back(m_grid->getNode(x,y-1));
+        tmp = m_grid->getNode(x+1,y);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x,y+1);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x,y-1);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
     } else if (y == 0) {
-        returnVector.push_back(m_grid->getNode(x+1,y));
-        returnVector.push_back(m_grid->getNode(x-1,y));
-        returnVector.push_back(m_grid->getNode(x,y+1));
+        tmp = m_grid->getNode(x+1,y);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x-1,y);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x,y+1);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
     } else if (x == 25) {
-        returnVector.push_back(m_grid->getNode(x,y-1));
-        returnVector.push_back(m_grid->getNode(x-1,y));
-        returnVector.push_back(m_grid->getNode(x,y+1));
+        tmp = m_grid->getNode(x,y-1);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x-1,y);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x,y+1);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
     } else if (y == 25) {
-        returnVector.push_back(m_grid->getNode(x,y-1));
-        returnVector.push_back(m_grid->getNode(x-1,y));
-        returnVector.push_back(m_grid->getNode(x+1,y));
+        tmp = m_grid->getNode(x,y-1);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x-1,y);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x+1,y);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
     } else {
-        returnVector.push_back(m_grid->getNode(x+1,y));
-        returnVector.push_back(m_grid->getNode(x-1,y));
-        returnVector.push_back(m_grid->getNode(x,y+1));
-        returnVector.push_back(m_grid->getNode(x,y-1));
+        tmp = m_grid->getNode(x+1,y);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x,y+1);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x,y-1);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
+        tmp = m_grid->getNode(x-1,y);
+        if (!tmp->isWall)
+            returnVector.push_back(tmp);
     }
 
     qDebug() << "Susedi od: " << node.getX() << " " << node.getY() << "\n";

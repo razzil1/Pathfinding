@@ -3,6 +3,7 @@
 
 #include "grid.h"
 #include "astar.h"
+#include "dijkstra.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -54,12 +55,22 @@ void MainWindow::on_radioButton_2_clicked(bool checked)
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    astar *Astar = new astar(*scene);
-    Astar->executeAstar();
+    if(ui->comboBox->currentIndex() == 0){
+        astar *Astar = new astar(*scene);
+        Astar->executeAstar();
+    } else if (ui->comboBox->currentIndex() == 1) {
+        dijkstra *Dijkstra = new dijkstra(*scene);
+        Dijkstra->execute();
+    }
 }
 
 void MainWindow::on_pushButton_3_clicked()
 {
     scene->clearPath();
     scene->drawGrid();
+}
+
+void MainWindow::on_radioButton_3_clicked(bool checked)
+{
+    scene->setColor('z');
 }

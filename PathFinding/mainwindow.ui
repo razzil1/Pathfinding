@@ -78,7 +78,7 @@
           </widget>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout">
+          <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
             <widget class="QRadioButton" name="radioButton">
              <property name="text">
@@ -90,6 +90,13 @@
             <widget class="QRadioButton" name="radioButton_2">
              <property name="text">
               <string>End</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="radioButton_3">
+             <property name="text">
+              <string>Wall</string>
              </property>
             </widget>
            </item>

@@ -21,6 +21,7 @@ public:
     int getF() const;
     Node* getParent() const;
     void setParent(Node *p);
+    bool isWall;
 private:
     int m_x;
     int m_y;

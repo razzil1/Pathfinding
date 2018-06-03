@@ -9,6 +9,7 @@ Node::Node(int x, int y, char c)
 {
     m_item = QRectF(x, y, 20, 20);
     this->setBrush(c);
+    isWall = false;
 }
 
 QRectF Node::getItem() const
@@ -41,6 +42,10 @@ void Node::setBrush(char c)
             break;
         case 'l':
             m_brush = QBrush(Qt::lightGray);
+            break;
+        case 'z':
+            m_brush = QBrush(Qt::black);
+            isWall = true;
             break;
     }
 }
