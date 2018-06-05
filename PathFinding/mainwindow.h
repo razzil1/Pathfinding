@@ -29,6 +29,8 @@ private slots:
     void on_clearPathButton_clicked();
 
 
+    void on_importButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Grid *scene;

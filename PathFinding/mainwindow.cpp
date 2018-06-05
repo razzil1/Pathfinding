@@ -4,6 +4,11 @@
 #include <ctime>
 #include <sstream>
 #include <sys/time.h>
+
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
+
 #include "grid.h"
 #include "astar.h"
 #include "dijkstra.h"
@@ -80,3 +85,51 @@ void MainWindow::on_clearPathButton_clicked()
     ui->label->setText("");
 }
 
+
+void MainWindow::on_importButton_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(
+                    this,
+                    tr("Open file"),
+                    "C://",
+                    "All files (*.*);;Text files (*.txt)"
+                    );
+
+        QFile file(filename);
+        if(!file.open(QIODevice::ReadOnly))
+            ui->label->setText("Error!");
+
+        QTextStream in(&file);
+
+        unsigned int i, j;
+        char color;
+
+        while(!in.atEnd())
+        {
+           QString line = in.readLine();
+           QStringList fields = line.split(" ");
+           j = fields[0].toInt();
+           i = fields[1].toInt();
+           color = fields[2][0].toLatin1();
+
+           Node* node = scene->getNode(i, j);
+           node->setBrush(color);
+
+           if (color == 'g')
+           {
+               scene->setStart(j, i);
+           }
+           else if(color == 'r')
+           {
+               scene->setEnd(j, i);
+           }
+           else if (color == 'z')
+           {
+               node->isWall = true;
+           }
+
+
+        }
+
+        scene->drawGrid();
+}
