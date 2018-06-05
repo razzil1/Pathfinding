@@ -28,17 +28,23 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_radioButton_clicked()
+void MainWindow::on_startRadioButton_clicked()
 {
     scene->setColor('g');
 }
 
-void MainWindow::on_radioButton_2_clicked()
+void MainWindow::on_endRadioButton_clicked()
 {
     scene->setColor('r');
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_wallRadioButton_clicked()
+{
+    scene->setColor('z');
+}
+
+
+void MainWindow::on_findPathButton_clicked()
 {
     struct timeval tp;
     gettimeofday(&tp, NULL);
@@ -67,14 +73,10 @@ void MainWindow::on_pushButton_2_clicked()
     ui->label->setText(qstr);
 }
 
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_clearPathButton_clicked()
 {
     scene->clearPath();
     scene->drawGrid();
     ui->label->setText("");
 }
 
-void MainWindow::on_radioButton_3_clicked()
-{
-    scene->setColor('z');
-}

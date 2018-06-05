@@ -24,8 +24,9 @@ void bfs::executeBFS()
         if (endNode->getX() == n->getX() && endNode->getY() == n->getY())
         {
             startNode->setParent(NULL);
-            drawPath(*n);
             startNode->setBrush('g');
+            drawPath(*n);
+
             break;
         } else
         {
@@ -47,8 +48,8 @@ std::vector<Node*> bfs::getNeighbourNodes(Node &node)
 {
     Node* tmp;
     std::vector<Node*> returnVector;
-    int x = int(node.getX()/20);
-    int y = int(node.getY()/20);
+    int x = node.getX()/20;
+    int y = node.getY()/20;
     if( x == 0 && y == 0) {
         tmp = m_grid->getNode(x+1,y);
         if (!tmp->isWall)
@@ -139,12 +140,12 @@ void bfs::drawPath(Node &node)
 {
     Node* parent = node.getParent();
     node.setBrush('r');
-    while(parent)
+
+    while(parent->getParent())
     {
         parent->setBrush('l');
         parent = parent->getParent();
     }
-    Node* startNode = m_grid->getStartNode();
-    startNode->setBrush('g');
+
     m_grid->drawGrid();
 }

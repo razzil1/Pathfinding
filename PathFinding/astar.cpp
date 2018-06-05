@@ -20,21 +20,21 @@ void astar::executeAstar()
 
     while(!openList.empty())
     {
-        int max = 0;
-        int maxF = openList[max]->getF();
+        int indeksOfBest = 0;
+        int bestF = openList[indeksOfBest]->getF();
         for(unsigned int i=1; i<openList.size(); i++)
         {
             int tmpF = openList[i]->getF();
-            if(tmpF < maxF){
-                max = i;
-                maxF = tmpF;
+            if(tmpF < bestF){
+                indeksOfBest = i;
+                bestF = tmpF;
             }
         }
-        Node* n = openList[max];
+        Node* n = openList[indeksOfBest];
         if (endNode->getX() == n->getX() && endNode->getY() == n->getY())
         {
             drawPath(*n);
-            startNode->setBrush('g');
+
             break;
         } else
         {
@@ -52,40 +52,38 @@ void astar::executeAstar()
                 } else
                 {
                     int newG = n->getG()+1;
-                    if (neigbourNodes[i]->getG() > newG)
+                    if (newG < neigbourNodes[i]->getG())
                     {
                         neigbourNodes[i]->setG(newG);
                         calculateF(*neigbourNodes[i]);
                         neigbourNodes[i]->setParent(n);
                         if (inCloesedList(*neigbourNodes[i]))
                         {
-                            bool flag = true;
-                            int nodeToErase1 = -1;
-                            for (unsigned int t = 0; t < closedList.size(); t++){
-                                if (closedList[t]->getX() == neigbourNodes[i]->getX() && closedList[t]->getY() == neigbourNodes[i]->getY() && flag)
+                            for (unsigned int t = 0; t < closedList.size(); t++)
+                            {
+                                if (closedList[t]->getX() == neigbourNodes[i]->getX() && closedList[t]->getY() == neigbourNodes[i]->getY())
                                 {
-                                    nodeToErase1 = t;
-                                    flag = false;
+                                    closedList.erase(closedList.begin() + t);
+                                    break;
                                 }
                             }
-                            closedList.erase(closedList.begin() + nodeToErase1);
                             openList.push_back(neigbourNodes[i]);
                         }
                     }
                 }
             }
-            bool flag = true;
-            int nodeToErase = -1;
-            for (unsigned int i = 0; i < openList.size(); i++){
-                if (openList[i]->getX() == n->getX() && openList[i]->getY() == n->getY() && flag)
-                {
-                    nodeToErase = i;
-                    flag = false;
-                }
-            }
-            if (nodeToErase != -1)
+
+
+            for (unsigned int i = 0; i < openList.size(); i++)
             {
-                openList.erase(openList.begin() + nodeToErase);
+
+                if (openList[i]->getX() == n->getX() && openList[i]->getY() == n->getY())
+                {
+
+                    openList.erase(openList.begin() + i);
+
+                    break;
+                }
             }
             closedList.push_back(n);
         }
@@ -107,8 +105,8 @@ std::vector<Node*> astar::getNeighbourNodes(Node &node)
 {
     Node* tmp;
     std::vector<Node*> returnVector;
-    int x = int(node.getX()/20);
-    int y = int(node.getY()/20);
+    int x = node.getX()/20;
+    int y = node.getY()/20;
     if( x == 0 && y == 0) {
         tmp = m_grid->getNode(x+1,y);
         if (!tmp->isWall)
@@ -224,7 +222,8 @@ void astar::drawPath(Node &node)
 {
     Node* parent = node.getParent();
     node.setBrush('r');
-    while(parent)
+
+    while(parent->getParent())
     {
         parent->setBrush('l');
         parent = parent->getParent();

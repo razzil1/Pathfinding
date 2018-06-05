@@ -114,10 +114,12 @@ void Grid::clearPath()
         {
             m_grid[i][j].setBrush('w');
             m_grid[i][j].setParent(NULL);
+            m_grid[i][j].isWall=false;
         }
     }
     Node* startNode = getStartNode();
     startNode->setBrush('g');
     Node* endNode = getEndNode();
     endNode->setBrush('r');
+
 }

@@ -57,8 +57,8 @@ std::vector<Node*> dijkstra::getNeighbourNodes(Node &node)
     Node* tmp;
     float sqrtTwo = sqrt(2);
     std::vector<Node*> returnVector;
-    int x = int(node.getX()/20);
-    int y = int(node.getY()/20);
+    int x = node.getX()/20;
+    int y = node.getY()/20;
     if( x == 0 && y == 0) {
         tmp = m_grid->getNode(x+1,y);
         if(!tmp->isWall){

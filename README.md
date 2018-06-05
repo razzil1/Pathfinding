@@ -10,16 +10,15 @@ Finding path between two nodes using the most popular algorithms for informed an
 
 ## Development
 
-* [ ] GUI
+* [x] GUI
     * [x] Grid
     * [x] Node
-    * [ ] Instruction box
-* [ ] Algorithms
+    * [x] Instruction box
+* [x] Algorithms
     * [x] DFS
     * [x] BFS
     * [x] Dijkstra
     * [x] A*
-    * [ ] etc.
 * [x] Implement obstacles
 
 ## Screenshot

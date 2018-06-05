@@ -80,21 +80,21 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
-            <widget class="QRadioButton" name="radioButton">
+            <widget class="QRadioButton" name="startRadioButton">
              <property name="text">
               <string>Start</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_2">
+            <widget class="QRadioButton" name="endRadioButton">
              <property name="text">
               <string>End</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QRadioButton" name="radioButton_3">
+            <widget class="QRadioButton" name="wallRadioButton">
              <property name="text">
               <string>Wall</string>
              </property>
@@ -107,14 +107,14 @@
        <item row="3" column="0">
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="findPathButton">
            <property name="text">
             <string>Find Path</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton_3">
+          <widget class="QPushButton" name="clearPathButton">
            <property name="text">
             <string>Clear Path</string>
            </property>

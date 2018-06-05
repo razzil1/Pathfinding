@@ -18,30 +18,6 @@ void dfs::executeDFS()
 
         Node* n = path[path.size() - 1];
 
-        std::vector<Node*> neigbourNodes = getNeighbourNodes(*n);
-        bool hasUnvisited = false;
-        int notVisitedNode;
-
-
-        for (unsigned int i=0; i<neigbourNodes.size(); i++)
-        {
-            bool inVisited = false;
-            for (unsigned int j = 0; j < visitedNodes.size(); j++)
-            {
-                if (neigbourNodes[i]->getX() == visitedNodes[j]->getX() && neigbourNodes[i]->getY() == visitedNodes[j]->getY())
-                {
-                    inVisited = true;
-                }
-            }
-            if (!inVisited)
-            {
-                notVisitedNode = i;
-                hasUnvisited = true;
-                break;
-            }
-
-        }
-
         if (endNode->getX() == n->getX() && endNode->getY() == n->getY())
         {
 
@@ -55,7 +31,34 @@ void dfs::executeDFS()
             m_grid->drawGrid();
 
             break;
-        } else if (!hasUnvisited)
+        }
+
+        std::vector<Node*> neigbourNodes = getNeighbourNodes(*n);
+        bool hasUnvisited = false;
+        unsigned int notVisitedNode;
+
+
+        for (unsigned int i=0; i<neigbourNodes.size(); i++)
+        {
+            bool inVisited = false;
+            for (unsigned int j = 0; j < visitedNodes.size(); j++)
+            {
+                if (neigbourNodes[i]->getX() == visitedNodes[j]->getX() && neigbourNodes[i]->getY() == visitedNodes[j]->getY())
+                {
+                    inVisited = true;
+                    break;
+                }
+            }
+            if (!inVisited)
+            {
+                notVisitedNode = i;
+                hasUnvisited = true;
+                break;
+            }
+
+        }
+
+        if (!hasUnvisited)
         {
             path.pop_back();
         }
@@ -72,8 +75,8 @@ std::vector<Node*> dfs::getNeighbourNodes(Node &node)
 {
     Node* tmp;
     std::vector<Node*> returnVector;
-    int x = int(node.getX()/20);
-    int y = int(node.getY()/20);
+    int x = node.getX()/20;
+    int y = node.getY()/20;
     if( x == 0 && y == 0) {
         tmp = m_grid->getNode(x+1,y);
         if (!tmp->isWall)

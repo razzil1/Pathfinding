@@ -21,12 +21,12 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_radioButton_clicked();
-    void on_radioButton_2_clicked();
-    void on_radioButton_3_clicked();
+    void on_startRadioButton_clicked();
+    void on_endRadioButton_clicked();
+    void on_wallRadioButton_clicked();
 
-    void on_pushButton_2_clicked();
-    void on_pushButton_3_clicked();
+    void on_findPathButton_clicked();
+    void on_clearPathButton_clicked();
 
 
 private:
